@@ -1,3 +1,13 @@
+const inquirer = require('Inquirer');
+const mysql2 = require('mysql2');
+const dotenv = require('dotenv');
+const consoleTables = require('console.table');
+
+
+
+
+
+
 /*
 
 Inquirer prompts needed:
@@ -37,5 +47,3 @@ view all employees:
     show salaries
     show manager employee reports to
 */
-
-

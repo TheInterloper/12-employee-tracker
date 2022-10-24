@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 
-USE employee_db;;
+USE employee_db;
 
 
 CREATE TABLE departments (
@@ -9,12 +9,7 @@ CREATE TABLE departments (
   dept_name VARCHAR(30) NOT NULL,
 );
 
-CREATE TABLE managers (
-id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
-
-
-);
-
+CREATE TABLE
 
 
 CREATE TABLE roles (
@@ -23,6 +18,7 @@ CREATE TABLE roles (
   role_salary VARCHAR(30) NOT NULL,
   FOREIGN KEY (role_dept)
   REFERENCES departments (dept_name)
+  ON DELETE SET NULL
 );
 
 
@@ -32,7 +28,10 @@ CREATE TABLE employees (
   last_name VARCHAR(30) NOT NULL,
   job_title VARCHAR(255) NOT NULL,
   FOREIGN KEY (emp_dept)
-    REFERENCES (dept_name),
+    REFERENCES (dept_name)
+    ON DELETE SET NULL,
   FOREIGN KEY (emp_salary)
-    REFERENCES (role_salary)  
+    REFERENCES (role_salary)
+    ON DELETE SET NULL,
+  mgr BOOLEAN DEFAULT FALSE
 );
